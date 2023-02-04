@@ -4,13 +4,15 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 84384
  */
 public class Ani {
-    private String name_cat, scient_name, name_ani;
-
+    private String id_ani, name_cat, scient_name, name_ani;
+    private ArrayList<String> img_url;
     public Ani(String name_cat, String scient_name, String name_ani) {
         this.name_cat = name_cat;
         this.scient_name = scient_name;
