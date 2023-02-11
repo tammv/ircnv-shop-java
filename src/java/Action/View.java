@@ -4,7 +4,7 @@
  */
 package Action;
 
-import Control.connect2;
+import Connect.connect2;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;

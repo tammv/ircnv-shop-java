@@ -10,10 +10,47 @@ package Control;
  */
 public class Query {
 
-    public String getAllAnimal(){
-        return  "select b.name_cat, (TRIM(c.name_genus)+' '+TRIM(a.name_species)) as scienct_name, a.name_ani from ani a inner join cat b on b.id_cat = a.id_cat inner join dbo.Genús c on c.id_genus = a.id_genus";
+    public String getAllAnimal(String type) {
+        String typeID = "";
+//        switch (type) {
+//            case "Spider":
+//                typeID = "CAT001";
+//                break;
+//            case "Frog":
+//                typeID = "CAT002";
+//                break;
+//            case "Snake":
+//                typeID = "CAT003";
+//                break;
+//            case "Sscopion":
+//                typeID = "CAT004";
+//                break;
+//            default:
+//                throw new AssertionError();
+//        }
+        return "select trim(a.id_ani), trim(c.name_cat), (trim(b.name_genus)+' '+trim(a.name_species)) as scient_name, trim(a.name_ani)\n"
+                + "from dbo.Ani a\n"
+                + "inner join dbo.Genús b on b.id_genus = a.id_genus\n"
+                + "inner join cat c on c.id_cat = a.id_cat";
     }
-    public String getSpecAnimal(){
+
+    public String get_price_according_ani_id() {
+        return "select sling, semili_mature, mature_male, mature_female\n"
+                + "from dbo.Prices \n"
+                + "where id_ani=?";
+    }
+
+    public String get_link_img_according_ani_id() {
+        return "select img.img_link\n"
+                + "from dbo.Ani inner join dbo.img on img.id_ani = Ani.id_ani\n"
+                + "where dbo.Ani.id_ani= ?";
+    }
+
+    public String getSpecAnimal() {
         return "";
+    }
+
+    public String getAllUserInfor() {
+        return "select * from dbo.customer";
     }
 }

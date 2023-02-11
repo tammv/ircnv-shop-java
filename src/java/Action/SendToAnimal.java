@@ -5,7 +5,6 @@
 package Action;
 
 import Control.GetInfor;
-import Control.ReadFile;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ import model.Ani;
  *
  * @author 84384
  */
-public class IntroDuction extends HttpServlet {
+public class SendToAnimal extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,33 +29,20 @@ public class IntroDuction extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-//    response.setContentType("text/html;charset=UTF-8");
-//        try ( PrintWriter out = response.getWriter()) {
-//            String type= "";
-////             String type= request.getParameter("type");
-//            GetInfor gi= new GetInfor();
-//            ArrayList<Ani> aniList= gi.GetAllAni(type);
-//            request.setAttribute("AniListData", aniList );
-//            System.out.println("run SendToAnimal");
-//            request.getRequestDispatcher("Animal.jsp").forward(request, response);
-//            
-//        }
-    @Override
-    public void init()
-            throws ServletException {
-        super.init(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        System.out.println("Start: "+new ReadFile().getCurrentPath());
-    }
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ReadFile RF= new ReadFile();
-        String text= RF.GetReadText(RF.getCurrentPath()+"\\text\\Intro.txt");
-        try {
-            request.setAttribute("IntroText", text);
-            request.getRequestDispatcher("Introduction.jsp").forward(request, response);
-        } catch (Exception e) {
-            e.printStackTrace();
+        response.setContentType("text/html;charset=UTF-8");
+            response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            String type= "";
+//             String type= request.getParameter("type");
+            GetInfor gi= new GetInfor();
+            ArrayList<Ani> aniList= gi.GetAllAni(type);
+            request.setAttribute("AniListData", aniList );
+            System.out.println("run SendToAnimal");
+            request.getRequestDispatcher("Animal.jsp").forward(request, response);
+            
         }
     }
 

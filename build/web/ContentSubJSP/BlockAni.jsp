@@ -14,7 +14,7 @@
         <style>
             .ani-block{
                 width: 100%;
-                
+
             }
             .content h5{
                 bottom: 0;
@@ -25,12 +25,15 @@
         </style>
     </head>
     <body>
+        <%String img_link = request.getParameter("img_link");
+          String price = request.getParameter("price");
+          String name = request.getParameter("name");
+        %>
         <div class=".ani-block">
-            <img class="img-responsive img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Brachypelma_edit.jpg/1024px-Brachypelma_edit.jpg" 
+            <img class="img-responsive img-fluid" src=" <%=img_link%>" 
                  alt="alt"/>
             <div class="content">
-                <h5> Red Knee Tarantula - 250$</h5>
-
+                <h5> <%=name%> - <%=price%></h5>
             </div>
         </div>
     </body>

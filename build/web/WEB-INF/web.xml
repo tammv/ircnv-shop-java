@@ -16,6 +16,10 @@
         <servlet-name>IntroDuction</servlet-name>
         <servlet-class>Action.IntroDuction</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SendToAnimal</servlet-name>
+        <servlet-class>Action.SendToAnimal</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewAll</servlet-name>
         <url-pattern>/ViewAll</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>IntroDuction</servlet-name>
         <url-pattern>/IntroDuction</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendToAnimal</servlet-name>
+        <url-pattern>/SendToAnimal</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
