@@ -39,9 +39,10 @@
 
                 <div class=".ani-block">
                     <%try {%>
-                    <jsp:include page="ContentSubJSP/BlockAni.jsp" >
-
-                        <jsp:param name="img_link" value="<%=std.get(i).getImg_url().get(0)%>" />
+                    <jsp:include page="ContentSubJSP/newjsp.jsp" >
+                        <jsp:param name="img_link1" value="<%=std.get(i).getImg_url().get(0)%>" />
+                        
+                        <jsp:param name="img_link2" value="<%=std.get(i).getImg_url().get(1)%>" />
                         
                         <jsp:param name="price" value="<%=std.get(i).getPrice()[0]%>" />
                         
