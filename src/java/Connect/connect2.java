@@ -19,8 +19,8 @@ public class connect2 {
         this.databaseName = databaseName;
     }
 
-    public Connection getConnection() {
-//        if (databaseName!="") this.databaseName= databaseName;
+    public Connection getConnection(String name) {
+        if (name!="") databaseName= name;
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String connectionUrl = "jdbc:sqlserver://MSI\\SQLEXPRESS:1433;databaseName=" + databaseName + "; Encrypt=false;";
@@ -36,7 +36,7 @@ public class connect2 {
 
     public static void main(String args[]) {
         System.out.println("begin");
-        Connection cnn = new connect2().getConnection();
+        Connection cnn = new connect2().getConnection("");
         String Query = "Select * from nguoidung";
         PreparedStatement ps;
         ResultSet rs;

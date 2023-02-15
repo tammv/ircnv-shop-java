@@ -19,13 +19,13 @@ import model.User;
 public class GetInfor {
 
     Query getQuery = new Query();
-    Connection cnn = new connect2().getConnection();
+    Connection cnn = new connect2().getConnection(new Control.Query().DataBaseName);
 
     public ArrayList<User> GetAllUser() {
         ArrayList<User> UserList = new ArrayList<>();
         try {
             String Query = getQuery.getAllUserInfor();
-            Connection cnn = new connect2().getConnection();
+            Connection cnn = new connect2().getConnection(new Control.Query().DataBaseName);
             PreparedStatement ps = cnn.prepareStatement(Query);
             ResultSet rs = ps.executeQuery();
             System.out.println("QR4");
@@ -77,6 +77,7 @@ public class GetInfor {
             PreparedStatement ps = cnn.prepareStatement(Query);
             ResultSet rs = ps.executeQuery();
             System.out.println("QR4");
+           
             while (rs.next()) {
 //                System.out.println("check:" + rs.getString(1));
                 ArrayList<String> img_url = new ArrayList<>();

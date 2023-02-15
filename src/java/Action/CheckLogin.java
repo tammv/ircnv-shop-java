@@ -6,6 +6,9 @@ package Action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 84384
  */
-public class Ac extends HttpServlet {
+public class CheckLogin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,15 +34,25 @@ public class Ac extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Ac</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Ac at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String user= request.getParameter("user").trim();
+            String pass= request.getParameter("pass").trim();
+            String Query= new Control.Query().check_login_user_and_pass();
+            Connection cnn= new Connect.connect2().getConnection(new Control.Query().DataBaseName);
+            try {
+                PreparedStatement ps= cnn.prepareStatement(Query);
+                ps.setString(1, user);
+                ps.setString(2, pass);
+                ResultSet rs= ps.executeQuery();
+                while (rs.next()) {                    
+                    request.getRequestDispatcher("index.html").forward(request, response);
+                }
+                    request.setAttribute("user", user);
+                    request.setAttribute("pass", pass);
+                    request.setAttribute("color", "red");
+                    request.setAttribute("status", "Khong thanh cong");
+                    request.getRequestDispatcher("LoginScreen.jsp").forward(request, response);
+            } catch (Exception e) {
+            }
         }
     }
 

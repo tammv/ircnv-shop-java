@@ -62,7 +62,6 @@ public final class Animal_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </style>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
-      out.write("        <h1>Hello World!</h1>\r\n");
       out.write("        <div class=\"row\">\r\n");
       out.write("            ");
 ArrayList<Ani> std
@@ -80,32 +79,24 @@ ArrayList<Ani> std
                 for (int i = 0; i < std.size(); i++) {
       out.write("\r\n");
       out.write("            <div class=\"row col-md-3\">\r\n");
+      out.write("\r\n");
       out.write("                <div class=\".ani-block\">\r\n");
       out.write("                    ");
 try {
       out.write("\r\n");
-      out.write("                        <img class=\"img-responsive img-fluid\" src=\"");
-      out.print(std.get(i).getImg_url().get(0));
-      out.write("\"\r\n");
+      out.write("                    ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "ContentSubJSP/newjsp.jsp" + "?" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("img_link1", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(std.get(i).getImg_url().get(0)), request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("img_link2", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(std.get(i).getImg_url().get(1)), request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("price", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(std.get(i).getPrice()[0]), request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("name", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(std.get(i).getName_ani()), request.getCharacterEncoding()), out, false);
+      out.write("\r\n");
       out.write("                    ");
 } catch (Exception e) {
-                        System.out.println("this is id wrong: "+std.get(1).getId_ani());
-                        }
+        System.out.println("this is id wrong: " + std.get(1).getId_ani());
+    }
       out.write("\r\n");
-      out.write("                         alt=\"spider\"/>\r\n");
-      out.write("                    <div class=\"content\">\r\n");
-      out.write("                        <h5> ");
-      out.print(std.get(i).getName_ani());
-      out.write('-');
-      out.write(' ');
-      out.print(std.get(i).getPrice()[0]);
-      out.write("</h5>\r\n");
-      out.write("                    </div>\r\n");
+      out.write("\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("            ");
 }
-      out.write("\r\n");
       out.write("\r\n");
       out.write("        </div>\r\n");
       out.write("    </body>\r\n");

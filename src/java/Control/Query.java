@@ -9,7 +9,7 @@ package Control;
  * @author 84384
  */
 public class Query {
-
+    public String DataBaseName= "SpiderShop123";
     public String getAllAnimal(String type) {
         String typeID = "";
 //        switch (type) {
@@ -30,7 +30,7 @@ public class Query {
 //        }
         return "select trim(a.id_ani), trim(c.name_cat), (trim(b.name_genus)+' '+trim(a.name_species)) as scient_name, trim(a.name_ani)\n"
                 + "from dbo.Ani a\n"
-                + "inner join dbo.Genús b on b.id_genus = a.id_genus\n"
+                + "inner join dbo.Genus b on b.id_genus = a.id_genus\n"
                 + "inner join cat c on c.id_cat = a.id_cat";
     }
 
@@ -52,5 +52,11 @@ public class Query {
 
     public String getAllUserInfor() {
         return "select * from dbo.customer";
+    }
+
+    public String check_login_user_and_pass() {
+        return "select user_account, user_password \n"
+                + "from dbo.customer\n"
+                + "where user_account= ? and user_password=?";
     }
 }
